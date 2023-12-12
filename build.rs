@@ -9,10 +9,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .flag("-DLFS_NO_DEBUG")
         .flag("-DLFS_NO_WARN")
         .flag("-DLFS_NO_ERROR")
+        .flag("-DLFS_NO_INTRINSICS")
         .file("littlefs/lfs.c")
         .file("littlefs/lfs_util.c")
-        .file("string.c")
-    ;
+        .file("string.c");
 
     #[cfg(not(feature = "assertions"))]
     let builder = builder.flag("-DLFS_NO_ASSERT");
